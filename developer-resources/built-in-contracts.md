@@ -4,7 +4,7 @@ Examples of how to use the built-in contracts can be found [here](https://github
 
 ### authority.sol <a href="#authority-sol" id="authority-sol"></a>
 
-[authority.sol ](https://github.com/vechain/thor/blob/master/builtin/gen/authority.sol)is related to the proof of authority (PoA) consensus mechanism. The Authority contract manages a list of candidate proposers that are responsible for packing transactions into a block. The proposers are authorized by a voting committee, but only the first 101 proposers in the candidates list can build a block. A candidate proposer includes signer address, endorsor address and identity. Signer address is related to sign a block, endorsor address is used for charging miner's fee and identity is used for identifying the proposer.
+[authority.sol ](https://github.com/vechain/thor/blob/master/builtin/gen/authority.sol)is related to the proof of authority (PoA) consensus mechanism. The Authority contract manages a list of candidate proposers responsible for packing transactions into a block. The proposers are authorized by a voting committee, but only the first 101 proposers in the candidates list can build a block. A candidate proposer includes signer's address, endorsor address and identity. Signer address is related to sign a block, endorsor address is used for charging miner's fee and identity is used for identifying the proposer.
 
 **Address** :0x0000000000000000000000417574686f72697479
 
@@ -20,7 +20,7 @@ Examples of how to use the built-in contracts can be found [here](https://github
 
 ### executor.sol <a href="#executor-sol" id="executor-sol"></a>
 
-[executor.sol ](https://github.com/vechain/thor/blob/master/builtin/gen/executor.sol)represents the core code for the on-chain governance. The contract enables a proposal to be executed automatically on VeChainThor if it is approved by at least two-thirda of the steering committee members. A proposal can be registered either by an approver (a steering committee member) or by an authorized voting contract.
+[executor.sol ](https://github.com/vechain/thor/blob/master/builtin/gen/executor.sol)represents the core code for the on-chain governance. The contract enables a proposal to be executed automatically on VeChainThor if it is approved by at least two-thirds of the steering committee members. A proposal can be registered either by an approver (a steering committee member) or by an authorized voting contract.
 
 **Address** : 0x0000000000000000000000004578656375746f72
 
@@ -28,7 +28,7 @@ Examples of how to use the built-in contracts can be found [here](https://github
 
 ### extension-v2.sol <a href="#extension-v2-sol" id="extension-v2-sol"></a>
 
-[extension-v2.sol ](https://github.com/vechain/thor/blob/master/builtin/gen/extension-v2.sol)extends EVM functions. It allows the developer to get information of the current transaction and any historical block within range of the genesis block to the best block. The information obtained based on block number includes blockID, blockTotalScore, blockTime and blockSigner. The developer can also get the current transaction information, including txGasPayer, txProvedWork, txID, txBlockRef and txExpiration.
+[extension-v2.sol ](https://github.com/vechain/thor/blob/master/builtin/gen/extension-v2.sol)extends EVM functions. It allows the developer to get information on the current transaction and any historical block within range of the genesis block to the best block. The information obtained based on block number includes blockID, blockTotalScore, blockTime and blockSigner. The developer can also get the current transaction information, including txGasPayer, txProvedWork, txID, txBlockRef and txExpiration.
 
 > Note
 >
@@ -48,7 +48,7 @@ Examples of how to use the built-in contracts can be found [here](https://github
 
 ### prototype.sol <a href="#prototype-sol" id="prototype-sol"></a>
 
-[prototype.sol ](https://github.com/vechain/thor/blob/master/builtin/gen/prototype.sol)is an account management model of VeChainThor. In the account management model every contract has a master account, which, by default, is the creator of a contract. The master account plays the role of a contract manager, which has some authorities including "setMaster", "setCreditPlan", "addUser", "removeUser" and "selectSponsor". Every contract keeps a list of users who can call the contract for free but limited by credit. The user of a specific contract can be either added or removed by the contract master. Although from a user's perspective the fee is free, it is paid by a sponsor of the contract. Anyone can be a sponsor of a contract, just by calling sponsor function, and also the sponsor identity can be cancelled by calling unsponsor function. A contract may have more than one sponsor, but only the current sponsor chosen by master needs to pay the fee for the contract. If the current sponsor is out of energy, the master can select a sponsor from other sponsors candidates by calling selectSponsor function. The creditPlan can be set by the master which includes credit and recoveryRate. Every user has the same original credit. Every transaction consumes some amount of credit which is equal to the fee of the transaction, and the user can also pay the fee by itself if the gas payer is out of the credit. The credit can be recovered based on recoveryRate (per block).
+[prototype.sol ](https://github.com/vechain/thor/blob/master/builtin/gen/prototype.sol)is an account management model of VeChainThor. In the account management model every contract has a master account, which, by default, is the creator of a contract. The master account plays the role of a contract manager, which has some authorities including "setMaster", "setCreditPlan", "addUser", "removeUser" and "selectSponsor". Every contract keeps a list of users who can call the contract for free but limited by credit. The user of a specific contract can be either added or removed by the contract master. Although from a user's perspective the fee is free, it is paid by a sponsor of the contract. Anyone can be a sponsor of a contract, just by calling sponsor function, and also the sponsor identity can be canceled by calling unsponsor function. A contract may have more than one sponsor, but only the current sponsor chosen by master needs to pay the fee for the contract. If the current sponsor is out of energy, the master can select a sponsor from other sponsors candidates by calling selectSponsor function. The creditPlan can be set by the master which includes credit and recoveryRate. Every user has the same original credit. Every transaction consumes some amount of credit which is equal to the fee of the transaction, and the user can also pay the fee by itself if the gas payer is out of the credit. The credit can be recovered based on recoveryRate (per block).
 
 **Address** : 0x000000000000000000000050726f746f74797065
 
